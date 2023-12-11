@@ -724,69 +724,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: MotionTabBar(
-        initialSelectedTab: "Home",
-        useSafeArea: true,
-        labels: ["Home", "Category", "Search", "My Order", "Basket"],
-        icons: const [
-          Icons.home,
-          Icons.category,
-          Icons.search,
-          Icons.history_outlined,
-          Icons.shopping_basket
-        ],
-        tabSize: 50,
-        tabBarHeight: 55,
-        textStyle: const TextStyle(
-          fontSize: 12,
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
-        ),
-        tabIconColor: Colors.blue[600],
-        tabIconSize: 28.0,
-        tabIconSelectedSize: 26.0,
-        tabSelectedColor: Colors.blue[900],
-        tabIconSelectedColor: Colors.white,
-        tabBarColor: const Color(0xFFAFAFAF),
-        onTabItemSelected: (index) {
-          setState(() {
-            currentIndex = index;
-
-            switch (index) {
-              case 0:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-                break;
-              // case 1:
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => HomePage()),
-              //   );
-              //   break;
-              // case 2:
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => HomePage()),
-              //   );
-              //   break;
-              case 3:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyOrder()),
-                );
-                break;
-              case 4:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Basket()),
-                );
-                break;
-            }
-          });
-        },
-      ),
     );
   }
 }
