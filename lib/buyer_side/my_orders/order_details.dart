@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grocery/category/product_description.dart';
+import 'package:grocery/buyer_side/category/product_description.dart';
+import 'package:grocery/color/color.dart';
 import 'package:order_tracker/order_tracker.dart';
 
 class OrderDetails extends StatefulWidget {
@@ -29,12 +30,12 @@ class _OrderDetailsState extends State<OrderDetails> {
   List<TextDto> deliveredList = [
     TextDto("Your order has been delivered", "Thu, 31th Mar '22 - 3:58pm"),
   ];
-
+  ColorSelect colorObj = ColorSelect();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: colorObj.pruple,
         title: Text("Order Details"),
       ),
       body: SingleChildScrollView(

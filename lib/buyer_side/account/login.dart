@@ -1,14 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:grocery/account/otp_page.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+import 'package:flutter/material.dart';
+import 'package:grocery/buyer_side/account/my_account.dart';
+import 'package:grocery/buyer_side/account/signup.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupState extends State<Signup> {
+class _LoginPageState extends State<LoginPage> {
   bool hide = true;
 
   @override
@@ -29,59 +32,21 @@ class _SignupState extends State<Signup> {
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            margin: EdgeInsets.only(top: 120, left: 30, right: 30),
+            margin: EdgeInsets.only(top: 200, left: 30, right: 30),
             width: double.infinity,
-            height: 520,
+            height: 400,
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black38, spreadRadius: 0.1, blurRadius: 5)
-                ]),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black38, spreadRadius: 0.1, blurRadius: 5)
+              ],
+            ),
             child: Column(
               children: [
                 TextField(
                   decoration: InputDecoration(
-                    isDense: true,
-                    hintText: "First Name",
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: "Last Name",
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                TextField(
-                  keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: "Mobile",
-                    prefixIcon: Icon(Icons.phone),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    isDense: true,
                     hintText: "Email",
                     prefixIcon: Icon(Icons.email),
                     border: OutlineInputBorder(
@@ -89,34 +54,33 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 20,
                 ),
                 TextField(
+                  obscureText: hide,
                   decoration: InputDecoration(
-                    isDense: true,
                     hintText: "Password",
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          hide = !hide;
+                        });
+                      },
+                      icon: hide
+                          ? Icon(Icons.visibility_off)
+                          : Icon(Icons.visibility),
+                    ),
                     prefixIcon: Icon(Icons.lock),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: "Re Type Password",
-                    prefixIcon: Icon(Icons.lock),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: TextButton(
                     onPressed: () {},
-                    child: Text("Forget Password"),
+                    child: Text("Forget"),
                   ),
                 ),
                 ElevatedButton(
@@ -125,12 +89,13 @@ class _SignupState extends State<Signup> {
                       padding: EdgeInsets.symmetric(horizontal: 50)),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OtpPage(),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyAccount(),
+                      ),
+                    );
                   },
-                  child: Text("SignUp"),
+                  child: Text("Login"),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -151,16 +116,13 @@ class _SignupState extends State<Signup> {
             ),
           ),
           Positioned(
-              top: 40,
+              top: 50,
               left: 35,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
+                    child: Icon(Icons.arrow_back, color: Colors.white),
                     onTap: () {
                       Navigator.of(context).pop();
                     },
@@ -172,6 +134,10 @@ class _SignupState extends State<Signup> {
                     "Welcome",
                     style: TextStyle(color: Colors.white, fontSize: 35),
                   ),
+                  Text(
+                    "Login access to your account",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  )
                 ],
               ))
         ],

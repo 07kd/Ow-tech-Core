@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:grocery/color/color.dart';
 
 class Basket extends StatefulWidget {
   const Basket({Key? key}) : super(key: key);
@@ -20,13 +21,12 @@ class _BasketState extends State<Basket> {
   int SaltcurrentPrice = 20;
 
   int totalprice = 0;
-
+  ColorSelect colorObj = ColorSelect();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        centerTitle: true,
+        backgroundColor: colorObj.pruple,
         title: Text("Basket"),
       ),
       body: Padding(

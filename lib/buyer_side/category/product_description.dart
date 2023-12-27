@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:grocery/color/color.dart';
 
 class ProductDescription extends StatefulWidget {
   const ProductDescription({Key? key}) : super(key: key);
@@ -40,14 +41,14 @@ class _ProductDescriptionState extends State<ProductDescription> {
   //     'icon': Icons.wb_sunny,
   //   },
   // ];
-
+  ColorSelect colorObj = ColorSelect();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text("Grocey"),
+        backgroundColor: colorObj.pruple,
+        title: Text("OW Tech Core"),
       ),
       body: Stack(children: [
         Padding(

@@ -3,10 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:grocery/color/color.dart';
 import 'package:matcher/matcher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import 'groceryDescription.dart';
+import 'item.dart';
 
 class GrocerySubCat extends StatefulWidget {
   const GrocerySubCat({super.key});
@@ -60,7 +61,7 @@ class _GrocerySubCatState extends State<GrocerySubCat> {
       "images": "assets/banner/poha-removebg-preview.png"
     },
   ];
-
+  ColorSelect colorObj = ColorSelect();
   final CarouselController carouselController = CarouselController();
   int currentSlider = 0;
 
@@ -68,8 +69,8 @@ class _GrocerySubCatState extends State<GrocerySubCat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text("Grocery"),
+        backgroundColor: colorObj.pruple,
+        title: Text("OW Tech Core"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -185,7 +186,7 @@ class _GrocerySubCatState extends State<GrocerySubCat> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => GroceryDescription(),
+                            builder: (context) => Itemm(),
                           ));
                     },
                     child: Card(

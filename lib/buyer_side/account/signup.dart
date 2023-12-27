@@ -1,17 +1,14 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:grocery/account/my_account.dart';
-import 'package:grocery/account/signup.dart';
+import 'package:grocery/buyer_side/account/otp_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupState extends State<Signup> {
   bool hide = true;
 
   @override
@@ -32,21 +29,59 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            margin: EdgeInsets.only(top: 200, left: 30, right: 30),
+            margin: EdgeInsets.only(top: 120, left: 30, right: 30),
             width: double.infinity,
-            height: 400,
+            height: 520,
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black38, spreadRadius: 0.1, blurRadius: 5)
-              ],
-            ),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black38, spreadRadius: 0.1, blurRadius: 5)
+                ]),
             child: Column(
               children: [
                 TextField(
                   decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "First Name",
+                    prefixIcon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Last Name",
+                    prefixIcon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                TextField(
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Mobile",
+                    prefixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    isDense: true,
                     hintText: "Email",
                     prefixIcon: Icon(Icons.email),
                     border: OutlineInputBorder(
@@ -54,33 +89,34 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
                 TextField(
-                  obscureText: hide,
                   decoration: InputDecoration(
+                    isDense: true,
                     hintText: "Password",
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          hide = !hide;
-                        });
-                      },
-                      icon: hide
-                          ? Icon(Icons.visibility_off)
-                          : Icon(Icons.visibility),
-                    ),
                     prefixIcon: Icon(Icons.lock),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: "Re Type Password",
+                    prefixIcon: Icon(Icons.lock),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
                   ),
                 ),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: TextButton(
                     onPressed: () {},
-                    child: Text("Forget"),
+                    child: Text("Forget Password"),
                   ),
                 ),
                 ElevatedButton(
@@ -89,13 +125,12 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.symmetric(horizontal: 50)),
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyAccount(),
-                      ),
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OtpPage(),
+                        ));
                   },
-                  child: Text("Login"),
+                  child: Text("SignUp"),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -116,13 +151,16 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-              top: 50,
+              top: 40,
               left: 35,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
-                    child: Icon(Icons.arrow_back, color: Colors.white),
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
                     onTap: () {
                       Navigator.of(context).pop();
                     },
@@ -134,10 +172,6 @@ class _LoginPageState extends State<LoginPage> {
                     "Welcome",
                     style: TextStyle(color: Colors.white, fontSize: 35),
                   ),
-                  Text(
-                    "Login access to your account",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  )
                 ],
               ))
         ],

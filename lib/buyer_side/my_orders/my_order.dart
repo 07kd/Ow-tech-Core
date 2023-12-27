@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:grocery/color/color.dart';
 
 import 'order_details.dart';
 
@@ -10,11 +13,12 @@ class MyOrder extends StatefulWidget {
 }
 
 class _MyOrderState extends State<MyOrder> {
+  ColorSelect colorObj = ColorSelect();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: colorObj.pruple,
         title: Text("My Orders"),
       ),
       body: Column(

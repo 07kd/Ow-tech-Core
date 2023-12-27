@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:grocery/category/basket.dart';
-import 'package:grocery/category/my_order.dart';
-import 'package:grocery/home/home_page.dart';
+import 'package:grocery/buyer_side/account/my_account.dart';
+import 'package:grocery/buyer_side/basket/basket.dart';
+import 'package:grocery/buyer_side/my_orders/my_order.dart';
+import 'package:grocery/buyer_side/home/home_page.dart';
+import 'package:grocery/color/color.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 
 class Button_navigation extends StatefulWidget {
@@ -18,9 +20,11 @@ class _Button_navigationState extends State<Button_navigation> {
     HomePage(),
     Basket(),
     MyOrder(),
+    Profile(),
 
     // Profile(),
   ];
+  ColorSelect colorObj = ColorSelect();
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -33,14 +37,14 @@ class _Button_navigationState extends State<Button_navigation> {
           "Home",
           "Basket",
           "My Order",
-          "Category",
+          "Profile",
         ],
         icons: const [
           Icons.home,
           Icons.shopping_basket,
           Icons.history_outlined,
 
-          Icons.category,
+          Icons.person,
           //  Icons.search,
         ],
         tabSize: 50,
@@ -50,10 +54,10 @@ class _Button_navigationState extends State<Button_navigation> {
           color: Colors.black,
           fontWeight: FontWeight.w500,
         ),
-        tabIconColor: Colors.blue[600],
+        tabIconColor: colorObj.pruple,
         tabIconSize: 28.0,
         tabIconSelectedSize: 26.0,
-        tabSelectedColor: Colors.blue[900],
+        tabSelectedColor: colorObj.pruple,
         tabIconSelectedColor: Colors.white,
         tabBarColor: const Color(0xFFAFAFAF),
         onTabItemSelected: (index) {

@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:grocery/color/color.dart';
 import '../account/login.dart';
-import '../category/basket.dart';
+import '../basket/basket.dart';
 
 import '../category/grocery_sub_cat.dart';
-import '../category/my_order.dart';
+import '../my_orders/my_order.dart';
 
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 
@@ -140,6 +141,7 @@ class _HomePageState extends State<HomePage> {
     {"title": "Fruits & Vegetables", "images": "assets/e1.png"},
     {"title": "Fruits & Vegetables", "images": "assets/e1.png"},
   ];*/
+  ColorSelect colorObj = ColorSelect();
 
   ///Barnd item
   final List<Map<String, dynamic>> BarndItem = [
@@ -168,7 +170,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-     double deviceHeight = MediaQuery.of(context).size.height;
+    double deviceHeight = MediaQuery.of(context).size.height;
     double deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: Drawer(
@@ -188,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              decoration: BoxDecoration(color: Colors.green),
+              decoration: BoxDecoration(color: colorObj.pruple),
             ),
             ListTile(
               onTap: () {
@@ -205,7 +207,7 @@ class _HomePageState extends State<HomePage> {
               ),
               leading: Icon(
                 Icons.home,
-                color: Colors.green,
+                color: colorObj.pruple,
               ),
             ),
             ListTile(
@@ -223,7 +225,7 @@ class _HomePageState extends State<HomePage> {
               ),
               leading: Icon(
                 Icons.account_box,
-                color: Colors.green,
+                color: colorObj.pruple,
               ),
             ),
             ListTile(
@@ -241,7 +243,7 @@ class _HomePageState extends State<HomePage> {
               ),
               leading: Icon(
                 Icons.shopping_cart,
-                color: Colors.green,
+                color: colorObj.pruple,
               ),
             ),
             ListTile(
@@ -253,7 +255,7 @@ class _HomePageState extends State<HomePage> {
               ),
               leading: Icon(
                 Icons.logout,
-                color: Colors.green,
+                color: colorObj.pruple,
               ),
             )
           ],
@@ -261,9 +263,9 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         //   backgroundColor: Colors.pink,
-        backgroundColor: Colors.green,
+        backgroundColor: colorObj.pruple,
         title: Text(
-          "Grocery App",
+          "OW Tech Core",
         ),
       ),
       body: SingleChildScrollView(
@@ -281,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                   hintText: "Search products",
                   prefixIcon: Icon(
                     Icons.search,
-                    color: Colors.deepPurpleAccent,
+                    color: colorObj.pruple,
                   ),
                 ),
               ),
@@ -371,13 +373,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
+
+                    ///new arrivals
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: colorObj.pruple,
                                 borderRadius: BorderRadius.circular(5)),
                             width: double.infinity,
                             height: 40,
@@ -458,10 +462,11 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             height: 10,
                           ),
-                          //best seller
+
+                          ///best seller
                           Container(
                             decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: colorObj.pruple,
                                 borderRadius: BorderRadius.circular(5)),
                             width: double.infinity,
                             height: 40,
@@ -545,7 +550,7 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
-                                color: Colors.green),
+                                color: colorObj.pruple),
                             width: double.infinity,
                             height: 38,
                             child: Center(
@@ -638,7 +643,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color: Colors.green),
+                    color: colorObj.pruple),
                 height: 45,
                 width: double.infinity,
                 child: Row(

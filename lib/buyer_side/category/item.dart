@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:grocery/category/product_description.dart';
+import 'package:grocery/buyer_side/category/product_description.dart';
+import 'package:grocery/color/color.dart';
 
 import 'demo.dart';
 
-class GroceryDescription extends StatefulWidget {
-  const GroceryDescription({super.key});
+class Itemm extends StatefulWidget {
+  const Itemm({super.key});
 
   @override
-  State<GroceryDescription> createState() => _GroceryDescriptionState();
+  State<Itemm> createState() => _ItemmState();
 }
 
-class _GroceryDescriptionState extends State<GroceryDescription> {
+class _ItemmState extends State<Itemm> {
   final List<Map<String, dynamic>> CatItem = [
     {
       "title": "Atta",
@@ -55,13 +56,13 @@ class _GroceryDescriptionState extends State<GroceryDescription> {
       "kg": "1kg"
     },
   ];
-
+  ColorSelect colorObj = ColorSelect();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text("Grocery"),
+        backgroundColor: colorObj.pruple,
+        title: Text("OW Tech Core"),
       ),
       body: SingleChildScrollView(
         child: Column(
