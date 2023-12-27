@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery/buyer_side/buttonnavigation/button_navigation.dart';
 
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  Button_navigation(),
+      home: Button_navigation(),
     );
   }
 }

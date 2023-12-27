@@ -20,7 +20,7 @@ class _Button_navigationState extends State<Button_navigation> {
     HomePage(),
     Basket(),
     MyOrder(),
-    Profile(),
+    Setting_screen(),
 
     // Profile(),
   ];
