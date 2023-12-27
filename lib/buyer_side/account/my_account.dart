@@ -1,242 +1,174 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
+// ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:grocery/color/color.dart';
 
+class Setting_screen extends StatefulWidget {
+  const Setting_screen({super.key});
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
   @override
-  State<Profile> createState() => _ProfileState();
+  State<Setting_screen> createState() => _Setting_screenState();
 }
 
-class _ProfileState extends State<Profile> {
-  // String foodProviderName = "";
-  // String mobileNumber = "";
-  // void getsDetails() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     foodProviderName = prefs.getString("foodProviderName").toString();
-  //     mobileNumber = prefs.getString("mobileNumber").toString();
-  //   });
+ColorSelect colorObj = ColorSelect();
 
-  //   print(prefs.getString("foodProviderName").toString());
-  //   print(prefs.getString("mobileNumber").toString());
-  // }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-  }
-
-
+class _Setting_screenState extends State<Setting_screen> {
+  bool is_switch = false;
+  int is_switch_value = 0;
   @override
   Widget build(BuildContext context) {
-    double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: Color(0xFFdbf8e5),
-        body: Stack(
+      appBar: AppBar(
+        backgroundColor: colorObj.pruple,
+        centerTitle: true,
+        title: Text("Setting"),
+        elevation: 4,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
           children: [
-            SingleChildScrollView(
-              child: Container(
-                height: deviceHeight,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(""),
-                )),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: deviceHeight * 0.1,
-                      ),
-                      CircleAvatar(
-                        radius: 55,
-                        backgroundColor: Colors.grey.shade200,
-                        child: CircleAvatar(
-                          radius: 80,
-                          //    backgroundImage: NetworkImage( webbaseurl+profilePhoto),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "qqq",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
-                      ),
-                      Text(
-                        "123",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        child: Card(
-                          color: Colors.white,
-                          child: ListTile(
-                            leading: Icon(
-                              Icons.perm_identity_sharp,
-                              color: Colors.green,
-                            ),
-                            title: Text(
-                              'Edit Profile',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Card(
-                          color: Colors.white,
-                          child: ListTile(
-                            leading: Icon(
-                              Icons.privacy_tip_outlined,
-                              color: Colors.green,
-                            ),
-                            title: Text(
-                              'Privacy',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Card(
-                          color: Colors.white,
-                          child: ListTile(
-                            leading: Icon(
-                              Icons.help_outline,
-                              color: Colors.green,
-                            ),
-                            title: Text(
-                              'Terms & Condition',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Card(
-                          color: Colors.white,
-                          child: ListTile(
-                            leading: Icon(
-                              Icons.settings,
-                              color: Colors.green,
-                            ),
-                            title: Text(
-                              'Setting',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          setState(() {
-                            isLoading =
-                                true; // Set loading to true before async operation
-                          });
-
-                          // SharedPreferences prefs =
-                          //     await SharedPreferences.getInstance();
-                          // await prefs.clear();
-
-                          // Simulate a delay to see the loading indicator (you can remove this)
-                          await Future.delayed(Duration(seconds: 10));
-
-                          setState(() {
-                            isLoading =
-                                false; // Set loading to false after async operation
-                          });
-
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (builder) => Login_screen()),
-                          // );
-                        },
-                        child: Container(
-                          child: Card(
-                            color: Colors.white,
-                            child: ListTile(
-                              leading: Icon(
-                                Icons.login_outlined,
-                                color: Colors.green,
-                              ),
-                              title: Text(
-                                'Log Out',
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green),
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.green,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: ListTile(
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.purple[300],
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("User Name"),
+                    Text("Padma"),
+                  ],
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 23,
                 ),
               ),
             ),
-            if (isLoading)
-              Center(
-                child: Container(
-                  color: Colors.black.withOpacity(0),
-                  child: SpinKitFadingCircle(
-                    color: Colors.red,
-                    size: 60.0,
-                  ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: ListTile(
+                leading: Icon(
+                  Icons.phone_android,
+                  color: Colors.purple[300],
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Phone number"),
+                    Text("+91 9348757103"),
+                  ],
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 23,
                 ),
               ),
-          ],
-        ));
-  }
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: ListTile(
+                leading: Icon(
+                  Icons.language,
+                  color: Colors.purple[300],
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Language"),
+                    Text("English"),
+                  ],
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 23,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: ListTile(
+                leading: Icon(
+                  Icons.dark_mode,
+                  color: Colors.purple[300],
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Dark mode"),
+                  ],
+                ),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Transform.scale(
+                      scale: 0.8,
+                      child: Switch(
+                        activeColor: Colors.purple[300],
+                        value: is_switch,
+                        onChanged: (value) {
+                          setState(() {
+                            is_switch = value;
+                          });
 
-  bool isLoading = false;
+                          is_switch_value = is_switch ? 1 : 0;
+
+                          // print('Switch value: $seat_BeltValue');
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: ListTile(
+                leading: Icon(
+                  Icons.exit_to_app,
+                  color: Colors.purple[300],
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Log out"),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

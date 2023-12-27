@@ -298,26 +298,26 @@ class _BasketState extends State<Basket> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Container(
-          color: Colors.red,
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Toatl Price: ",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              Text(
-                (Attprice + Saltprice).toString(),
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ],
-          ),
-        ),
-      ),
+      // bottomNavigationBar: Padding(
+      //   padding: const EdgeInsets.all(15.0),
+      //   child: Container(
+      //     color: Colors.red,
+      //     height: 50,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: [
+      //         Text(
+      //           "Toatl Price: ",
+      //           style: TextStyle(color: Colors.white, fontSize: 20),
+      //         ),
+      //         Text(
+      //           (Attprice + Saltprice).toString(),
+      //           style: TextStyle(color: Colors.white, fontSize: 20),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

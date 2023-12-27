@@ -88,12 +88,12 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: Colors.deepPurple,
                       padding: EdgeInsets.symmetric(horizontal: 50)),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyAccount(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => MyAccount(),
+                    //   ),
+                    // );
                   },
                   child: Text("Login"),
                 ),
