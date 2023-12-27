@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class Basket extends StatefulWidget {
@@ -12,7 +14,7 @@ class _BasketState extends State<Basket> {
   int Attprice = 12;
   int AttcurrentPrice = 12;
 
-  //salt
+  ///salt
   int Saltcounter = 1;
   int Saltprice = 20;
   int SaltcurrentPrice = 20;
@@ -297,10 +299,10 @@ class _BasketState extends State<Basket> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(15.0),
         child: Container(
           color: Colors.red,
-          height: 55,
+          height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:grocery/category/basket.dart';
@@ -16,8 +16,9 @@ class _Button_navigationState extends State<Button_navigation> {
   int _currentPageIndex = 0; // Track the current page index
   final List<Widget> _pages = [
     HomePage(),
-    MyOrder(),
     Basket(),
+    MyOrder(),
+
     // Profile(),
   ];
   int currentIndex = 0;
@@ -28,13 +29,19 @@ class _Button_navigationState extends State<Button_navigation> {
       bottomNavigationBar: MotionTabBar(
         initialSelectedTab: "Home",
         useSafeArea: true,
-        labels: ["Home", "Category", "My Order", "Basket"],
+        labels: [
+          "Home",
+          "Basket",
+          "My Order",
+          "Category",
+        ],
         icons: const [
           Icons.home,
+          Icons.shopping_basket,
+          Icons.history_outlined,
+
           Icons.category,
           //  Icons.search,
-          Icons.history_outlined,
-          Icons.shopping_basket
         ],
         tabSize: 50,
         tabBarHeight: 55,

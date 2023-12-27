@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import '../account/login.dart';
 import '../category/basket.dart';
@@ -166,6 +168,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+     double deviceHeight = MediaQuery.of(context).size.height;
+    double deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: Drawer(
         child: ListView(
@@ -264,8 +268,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:
-              const EdgeInsets.only(left: 8, right: 8, top: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 10),
           child: Column(
             children: [
               TextField(

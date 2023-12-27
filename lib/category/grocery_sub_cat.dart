@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_print, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -57,11 +59,6 @@ class _GrocerySubCatState extends State<GrocerySubCat> {
       "title": "Poha & Puffed Rice",
       "images": "assets/banner/poha-removebg-preview.png"
     },
-    // {
-    //   "title": "Soya Chunks",
-    //   "images":
-    //       "/Users/skkalamuddin/StudioProjects/grocery/assets/innercat/soya-removebg-preview.png"
-    // },
   ];
 
   final CarouselController carouselController = CarouselController();

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -56,7 +58,10 @@ class _ProductDescriptionState extends State<ProductDescription> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 25, left: 10, right: 10, bottom: 10),
+                    top: 25,
+                    left: 10,
+                    right: 10,
+                  ),
                   child: CarouselSlider(
                     items: imageList
                         .map(
@@ -91,34 +96,6 @@ class _ProductDescriptionState extends State<ProductDescription> {
                         });
                       },
                     ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: imageList.asMap().entries.map(
-                      (entry) {
-                        print(entry);
-                        print(entry.key);
-                        return GestureDetector(
-                          onTap: () =>
-                              carouselController.animateToPage(entry.key),
-                          child: Container(
-                            width: currentSlider == entry.key ? 17 : 7,
-                            height: 7.0,
-                            margin: const EdgeInsets.symmetric(
-                              horizontal: 3.0,
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: currentSlider == entry.key
-                                    ? Colors.red
-                                    : Colors.teal),
-                          ),
-                        );
-                      },
-                    ).toList(),
                   ),
                 ),
                 const SizedBox(
@@ -210,16 +187,44 @@ class _ProductDescriptionState extends State<ProductDescription> {
             ),
           ),
         ),
+        Positioned(
+          top: 320,
+          left: 150,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: imageList.asMap().entries.map(
+              (entry) {
+                print(entry);
+                print(entry.key);
+                return GestureDetector(
+                  onTap: () => carouselController.animateToPage(entry.key),
+                  child: Container(
+                    width: currentSlider == entry.key ? 17 : 7,
+                    height: 7.0,
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 3.0,
+                    ),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: currentSlider == entry.key
+                            ? Colors.red
+                            : Colors.teal),
+                  ),
+                );
+              },
+            ).toList(),
+          ),
+        ),
       ]),
       bottomNavigationBar: Container(
-        height: 56,
+        height: 50,
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Row(
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Container(
-                width: 180,
+                width: 160,
                 color: Colors.green,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
